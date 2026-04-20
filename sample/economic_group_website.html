@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economic Group</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#ffffff;
+  --off:#F9F8F6;
+  --light:#F0EEEB;
+  --border:#E2DED9;
+  --mid:#B0A99F;
+  --muted:#7A746E;
+  --text:#2A2520;
+  --dark:#1A1612;
+  --accent:#5C5550;
+  --green:#3D5A4A;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);font-size:15px;line-height:1.6}
+.page{display:none;animation:up 0.35s ease}
+.page.active{display:block}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── NAV ── */
+nav{background:var(--white);padding:0 4rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}
+.brand{padding:16px 0}
+.brand-name{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--dark);letter-spacing:3px;text-transform:uppercase}
+.brand-sub{font-size:10px;color:var(--mid);letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+.nav-links{display:flex}
+.nl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:20px 16px;cursor:pointer;border:none;background:none;font-family:'DM Sans',sans-serif;font-weight:400;border-bottom:1px solid transparent;transition:all 0.2s}
+.nl:hover{color:var(--dark)}
+.nl.active{color:var(--dark);border-bottom-color:var(--dark)}
+
+/* ── HERO ── */
+.hero{padding:100px 4rem 90px;background:var(--off);border-bottom:1px solid var(--border)}
+.hero-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--mid);margin-bottom:28px}
+.hero-title{font-family:'EB Garamond',serif;font-size:60px;font-weight:400;color:var(--dark);line-height:1.1;max-width:680px;margin-bottom:28px}
+.hero-title em{font-style:italic;color:var(--muted)}
+.hero-body{font-size:16px;color:var(--muted);line-height:1.85;max-width:520px;font-weight:300;margin-bottom:44px}
+.hero-stats{display:flex;gap:56px;margin-bottom:44px;flex-wrap:wrap}
+.sn{font-family:'EB Garamond',serif;font-size:42px;font-weight:400;color:var(--dark);line-height:1}
+.sl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);margin-top:4px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:400;padding:12px 28px;cursor:pointer;transition:all 0.2s;border:1px solid var(--dark);background:none;color:var(--dark)}
+.btn:hover{background:var(--dark);color:var(--white)}
+.btn-fill{background:var(--dark);color:var(--white);border:1px solid var(--dark)}
+.btn-fill:hover{background:var(--accent);border-color:var(--accent)}
+
+/* ── BATA STRIP ── */
+.strip{background:var(--dark);padding:14px 4rem;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.strip-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);border:1px solid rgba(255,255,255,0.15);padding:4px 14px;white-space:nowrap}
+.strip-text{font-size:12px;letter-spacing:1px;color:rgba(255,255,255,0.5);font-weight:300}
+
+/* ── SECTIONS ── */
+.sec{padding:80px 4rem}
+.sec-alt{background:var(--off)}
+.sec-dark{background:var(--dark)}
+.sec-green{background:var(--green)}
+.label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--mid);margin-bottom:16px}
+.sec-dark .label{color:rgba(255,255,255,0.35)}
+.sec-green .label{color:rgba(255,255,255,0.45)}
+.sec-title{font-family:'EB Garamond',serif;font-size:40px;font-weight:400;line-height:1.15;margin-bottom:20px;color:var(--dark)}
+.sec-dark .sec-title{color:var(--white)}
+.sec-green .sec-title{color:var(--white)}
+.sec-body{font-size:15px;color:var(--muted);line-height:1.9;font-weight:300;max-width:600px}
+.sec-dark .sec-body{color:rgba(255,255,255,0.5)}
+.sec-green .sec-body{color:rgba(255,255,255,0.65)}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:var(--border);margin:0}
+.divider-dark{background:rgba(255,255,255,0.08)}
+
+/* ── GRID CARDS ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);margin-top:48px}
+.grid-dark{background:rgba(255,255,255,0.06)}
+.grid-green{background:rgba(255,255,255,0.08)}
+.gc{background:var(--white);padding:32px 28px}
+.sec-alt .gc{background:var(--off)}
+.gc-dark{background:var(--dark)}
+.gc-green{background:var(--green)}
+.gc-num{font-family:'EB Garamond',serif;font-size:11px;letter-spacing:2px;color:var(--mid);margin-bottom:20px;text-transform:uppercase}
+.gc-dark .gc-num{color:rgba(255,255,255,0.25)}
+.gc-green .gc-num{color:rgba(255,255,255,0.35)}
+.gc-title{font-family:'EB Garamond',serif;font-size:20px;font-weight:500;margin-bottom:10px;color:var(--dark)}
+.gc-dark .gc-title{color:var(--white)}
+.gc-green .gc-title{color:var(--white)}
+.gc-body{font-size:13px;color:var(--muted);line-height:1.75;font-weight:300}
+.gc-dark .gc-body{color:rgba(255,255,255,0.4)}
+.gc-green .gc-body{color:rgba(255,255,255,0.6)}
+
+/* ── DIVISION CARDS ── */
+.div-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border);margin-top:48px}
+.dc{padding:48px 36px;background:var(--off);cursor:pointer;position:relative;transition:background 0.25s}
+.dc:hover{background:var(--light)}
+.dc-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-bottom:20px}
+.dc-name{font-family:'EB Garamond',serif;font-size:28px;font-weight:400;color:var(--dark);margin-bottom:12px;line-height:1.2}
+.dc-body{font-size:13px;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:28px}
+.dc-link{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dark)}
+.dc-solar{background:#0F2018}
+.dc-solar:hover{background:#162A1E}
+.dc-solar .dc-tag{color:rgba(255,255,255,0.3)}
+.dc-solar .dc-name{color:rgba(255,255,255,0.9)}
+.dc-solar .dc-body{color:rgba(255,255,255,0.4)}
+.dc-solar .dc-link{color:rgba(255,255,255,0.5)}
+
+/* ── QUOTE ── */
+.quote{padding:44px 48px;border-left:1px solid var(--border);margin-top:44px}
+.quote-dark{border-left:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.02)}
+.qt{font-family:'EB Garamond',serif;font-size:24px;font-style:italic;color:var(--accent);line-height:1.65}
+.qt-dark{color:rgba(255,255,255,0.6)}
+.qc{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-top:18px}
+.qc-dark{color:rgba(255,255,255,0.2)}
+
+/* ── ABOUT ── */
+.page-hero{padding:80px 4rem 70px;background:var(--off);border-bottom:1px solid var(--border)}
+.value-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--border)}
+.vc{background:var(--white);padding:28px 20px;text-align:center}
+.vc-n{font-family:'EB Garamond',serif;font-size:34px;color:var(--dark);font-weight:400}
+.vc-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);margin-top:4px}
+.gen-list{margin-top:40px}
+.gen{display:flex;gap:36px;padding:36px 0;border-bottom:1px solid var(--border)}
+.gen:last-child{border-bottom:none}
+.gen-n{font-family:'EB Garamond',serif;font-size:48px;color:var(--border);font-weight:400;min-width:60px;line-height:1}
+.gen-era{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-bottom:8px}
+.gen-t{font-family:'EB Garamond',serif;font-size:22px;font-weight:400;margin-bottom:10px;color:var(--dark)}
+.gen-b{font-size:14px;color:var(--muted);line-height:1.8;font-weight:300}
+
+/* ── PRODUCT HERO ── */
+.prod-hero{padding:70px 4rem;background:var(--dark);border-bottom:1px solid rgba(255,255,255,0.06)}
+.ph-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:18px}
+.ph-title{font-family:'EB Garamond',serif;font-size:52px;font-weight:400;color:var(--white);margin-bottom:18px;line-height:1.1}
+.ph-body{font-size:15px;color:rgba(255,255,255,0.45);line-height:1.85;max-width:540px;font-weight:300}
+
+/* ── PRODUCT LISTING ── */
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--border);margin-top:48px}
+.pl{background:var(--white)}
+.sec-alt .pl{background:var(--off)}
+.pl-vis{height:180px;background:var(--light);display:flex;align-items:flex-end;padding:20px;border-bottom:1px solid var(--border)}
+.pl-vis-label{font-family:'EB Garamond',serif;font-size:13px;font-style:italic;color:var(--mid);letter-spacing:1px}
+.pl-body{padding:24px}
+.pl-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-bottom:8px}
+.pl-name{font-family:'EB Garamond',serif;font-size:22px;font-weight:400;margin-bottom:8px;color:var(--dark)}
+.pl-desc{font-size:13px;color:var(--muted);line-height:1.72;font-weight:300}
+
+/* ── WHY DIFFERENTIATORS ── */
+.diff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border);margin-top:48px}
+.dif{background:var(--white);padding:36px 30px;position:relative;transition:background 0.2s}
+.sec-alt .dif{background:var(--off)}
+.dif:hover{background:var(--light)}
+.dif-n{font-family:'EB Garamond',serif;font-size:40px;color:var(--border);font-weight:400;line-height:1;margin-bottom:16px}
+.dif-t{font-family:'EB Garamond',serif;font-size:19px;font-weight:400;margin-bottom:10px;color:var(--dark)}
+.dif-b{font-size:13px;color:var(--muted);line-height:1.75;font-weight:300}
+
+/* ── SOLAR SECTION ── */
+.solar-sec{background:#0F2018;padding:80px 4rem}
+.solar-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:20px}
+.solar-title{font-family:'EB Garamond',serif;font-size:40px;font-weight:400;color:var(--white);line-height:1.15;margin-bottom:22px}
+.solar-title em{font-style:italic;color:rgba(255,255,255,0.5)}
+.solar-body{font-size:15px;color:rgba(255,255,255,0.45);line-height:1.9;font-weight:300;max-width:620px;margin-bottom:44px}
+.solar-stats{display:flex;gap:52px;flex-wrap:wrap}
+.ss-n{font-family:'EB Garamond',serif;font-size:34px;color:rgba(255,255,255,0.75);font-weight:400;line-height:1}
+.ss-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:4px}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);padding:56px 4rem 28px;border-top:1px solid rgba(255,255,255,0.06)}
+.f-brand{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:var(--white);letter-spacing:3px;text-transform:uppercase;margin-bottom:4px}
+.f-sub{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:36px}
+.f-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;margin-bottom:44px}
+.f-col-t{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:14px}
+.f-col-b{font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9;font-weight:300}
+.f-bottom{padding-top:22px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:1px;flex-wrap:wrap;gap:10px}
+
+@media(max-width:900px){.value-strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  nav{padding:0 1.5rem}.nl{padding:16px 9px;font-size:9px;letter-spacing:1px}
+  .hero,.sec,.page-hero,.prod-hero,.solar-sec,.strip,footer{padding-left:1.5rem;padding-right:1.5rem}
+  .hero{padding-top:56px;padding-bottom:48px}
+  .hero-title,.ph-title,.solar-title{font-size:36px}.sec-title{font-size:30px}
+  .hero-stats,.solar-stats{gap:28px}
+  .f-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <div class="brand-name">Economic Group</div>
+    <div class="brand-sub">Est. 1974</div>
+  </div>
+  <div class="nav-links">
+    <button class="nl active" onclick="show('home')">Home</button>
+    <button class="nl" onclick="show('about')">About</button>
+    <button class="nl" onclick="show('footwear')">Footwear</button>
+    <button class="nl" onclick="show('bags')">Bags</button>
+    <button class="nl" onclick="show('why')">Why Us</button>
+  </div>
+</nav>
+
+<!-- ════════════════ HOME ════════════════ -->
+<div id="page-home" class="page active">
+
+  <div class="hero">
+    <div class="hero-label">Three Generations · Fifty Years of Manufacturing</div>
+    <h1 class="hero-title">Precision made.<br><em>Legacy driven.</em></h1>
+    <p class="hero-body">Economic Group is a full-scale manufacturer of footwear and bags — built over five decades of unbroken craft, trusted by Bata India, and led today by a third generation committed to the same standard that started it all.</p>
+    <div class="hero-stats">
+      <div><div class="sn">50+</div><div class="sl">Years in Business</div></div>
+      <div><div class="sn">3rd</div><div class="sl">Generation</div></div>
+      <div><div class="sn">3</div><div class="sl">Divisions</div></div>
+    </div>
+    <div class="btns">
+      <button class="btn btn-fill" onclick="show('why')">Why Choose Us</button>
+      <button class="btn" onclick="show('footwear')">Footwear</button>
+      <button class="btn" onclick="show('bags')">Bags</button>
+      <button class="btn" onclick="show('about')">About Us</button>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="strip-tag">Authorised Manufacturer</div>
+    <div class="strip-text">Official manufacturing partner for Bata India — India's most trusted footwear brand</div>
+  </div>
+
+  <div class="sec sec-alt">
+    <div class="label">What We Do</div>
+    <h2 class="sec-title">Making things right<br>for over fifty years.</h2>
+    <p class="sec-body">Every product that leaves our factory carries five decades of accumulated knowledge — in materials, in process, in quality control, and in the discipline of a family that has never compromised on craft.</p>
+    <div class="grid">
+      <div class="gc">
+        <div class="gc-num">01</div>
+        <div class="gc-title">Footwear Manufacturing</div>
+        <div class="gc-body">Full-spectrum footwear production — formals, casuals, safety shoes, sandals, and school shoes — at every price point.</div>
+      </div>
+      <div class="gc">
+        <div class="gc-num">02</div>
+        <div class="gc-title">Bags & Leather Goods</div>
+        <div class="gc-body">Leather and synthetic bags for retail, corporate, and institutional clients — handbags, office bags, travel bags, wallets, and more.</div>
+      </div>
+      <div class="gc">
+        <div class="gc-num">03</div>
+        <div class="gc-title">OEM & Private Label</div>
+        <div class="gc-body">End-to-end manufacturing partnerships for brands. Our long-standing relationship with Bata India is the benchmark we apply to every client.</div>
+      </div>
+      <div class="gc">
+        <div class="gc-num">04</div>
+        <div class="gc-title">Economic Solar</div>
+        <div class="gc-body">Our newest venture — erecting solar power plants across India, extending our legacy into clean energy and a sustainable industrial future.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-dark">
+    <div class="label">Philosophy</div>
+    <h2 class="sec-title">Three generations.<br>One standard.</h2>
+    <p class="sec-body">Our grandfather started with one machine and a belief that Indian craftsmanship could meet the world. That belief — unchanged across fifty years and three generations — is the foundation of everything we build.</p>
+    <div class="quote quote-dark">
+      <div class="qt qt-dark">"When you wear our shoes or carry our bags, you carry fifty years of honest work. That is our promise — and our pride."</div>
+      <div class="qc qc-dark">Third Generation · Economic Group Leadership</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="label">Our Divisions</div>
+    <h2 class="sec-title">Three divisions.<br>One group.</h2>
+    <div class="div-grid">
+      <div class="dc" onclick="show('footwear')">
+        <div class="dc-tag">Division One</div>
+        <div class="dc-name">Footwear</div>
+        <div class="dc-body">Formal, casual, safety, sandals, school, and women's footwear — manufactured at scale with Bata-grade quality control.</div>
+        <div class="dc-link">View range →</div>
+      </div>
+      <div class="dc" onclick="show('bags')">
+        <div class="dc-tag">Division Two</div>
+        <div class="dc-name">Bags & Leather Goods</div>
+        <div class="dc-body">Handbags, office bags, travel bags, backpacks, wallets, and corporate gifting — bulk and private label available.</div>
+        <div class="dc-link">View range →</div>
+      </div>
+      <div class="dc dc-solar" onclick="show('why')">
+        <div class="dc-tag">Division Three</div>
+        <div class="dc-name">Economic Solar</div>
+        <div class="dc-body">Solar power plant installations across India — our newest venture and commitment to a greener industrial future.</div>
+        <div class="dc-link">Learn more →</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="f-brand">Economic Group</div>
+    <div class="f-sub">Est. 1974 · Footwear · Bags · Solar · Authorised Bata India Manufacturer</div>
+    <div class="f-cols">
+      <div><div class="f-col-t">Divisions</div><div class="f-col-b">Economic Footwear<br>Economic Bags<br>Economic Solar</div></div>
+      <div><div class="f-col-t">Manufacturing</div><div class="f-col-b">OEM & Private Label<br>Bulk B2B Supply<br>Corporate Gifting<br>Institutional Orders</div></div>
+      <div><div class="f-col-t">Partnership</div><div class="f-col-b">Authorised Manufacturer<br>Bata India<br><br>For enquiries &amp; bulk orders<br>please contact us.</div></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2025 Economic Group. All rights reserved.</span>
+      <span style="letter-spacing:2px;text-transform:uppercase">Three Generations of Trust</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════ ABOUT ════════════════ -->
+<div id="page-about" class="page">
+
+  <div class="page-hero">
+    <div class="hero-label">Our Story</div>
+    <h1 class="hero-title" style="font-size:52px">More than a business.<br><em>A family legacy.</em></h1>
+    <p class="hero-body">For over fifty years, across three generations, Economic Group has built a manufacturing reputation that speaks through every product — and through our long-standing partnership with Bata India.</p>
+  </div>
+
+  <div class="value-strip">
+    <div class="vc"><div class="vc-n">1974</div><div class="vc-l">Founded</div></div>
+    <div class="vc"><div class="vc-n">50+</div><div class="vc-l">Years Active</div></div>
+    <div class="vc"><div class="vc-n">3rd</div><div class="vc-l">Generation</div></div>
+    <div class="vc"><div class="vc-n">Bata</div><div class="vc-l">India Partner</div></div>
+  </div>
+
+  <div class="sec sec-alt">
+    <div class="label">Our Journey</div>
+    <h2 class="sec-title">Three generations,<br>one unbroken thread.</h2>
+    <p class="sec-body">From a single workshop to a multi-division manufacturing group — our story is one of craftsmanship, family discipline, and the relentless pursuit of quality across half a century.</p>
+    <div class="gen-list">
+      <div class="gen">
+        <div class="gen-n">I</div>
+        <div>
+          <div class="gen-era">1970s – 1990s</div>
+          <div class="gen-t">The Founding Vision</div>
+          <div class="gen-b">Our grandfather started with a small workshop and a single belief — that Indian hands could craft world-class footwear. He built the foundation: the machines, the methods, the discipline, and a reputation that would outlast him. Every pair that left that workshop carried his name and his integrity.</div>
+        </div>
+      </div>
+      <div class="gen">
+        <div class="gen-n">II</div>
+        <div>
+          <div class="gen-era">1990s – 2010s</div>
+          <div class="gen-t">Scaling the Legacy</div>
+          <div class="gen-b">The second generation expanded operations — growing production capacity, adding bag manufacturing as a second vertical, and securing the partnership as an authorised manufacturer for Bata India. They modernised the factory, tightened quality controls, and built a B2B network that reached retailers and distributors across India.</div>
+        </div>
+      </div>
+      <div class="gen">
+        <div class="gen-n">III</div>
+        <div>
+          <div class="gen-era">2010s – Present</div>
+          <div class="gen-t">Innovation & Continuity</div>
+          <div class="gen-b">The third generation brings 35+ years of business strategy and customer success experience to a manufacturing legacy built over five decades. We have launched Economic Solar, expanded our digital presence, and are exploring export markets — while maintaining every standard our grandfather established.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-dark">
+    <div class="label">Bata India</div>
+    <h2 class="sec-title">Trusted by India's most<br>recognised footwear brand.</h2>
+    <p class="sec-body">Being an authorised manufacturing partner for Bata India is a quality credential earned through years of consistent delivery, rigorous production standards, and manufacturing discipline that few can match.</p>
+    <div class="grid grid-dark" style="margin-top:44px">
+      <div class="gc gc-dark"><div class="gc-num">—</div><div class="gc-title">Quality Certified</div><div class="gc-body">Our production processes meet the stringent benchmarks required by Bata India — one of the most demanding standards in Indian footwear manufacturing.</div></div>
+      <div class="gc gc-dark"><div class="gc-num">—</div><div class="gc-title">Scale & Reliability</div><div class="gc-body">We consistently deliver bulk orders on schedule — the reliability that has sustained a long-term OEM relationship with India's most trusted footwear name.</div></div>
+      <div class="gc gc-dark"><div class="gc-num">—</div><div class="gc-title">Legacy of Trust</div><div class="gc-body">Our Bata India partnership is a testament to over fifty years of honest work, premium materials, and the manufacturing integrity we apply to every order.</div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="label">Values</div>
+    <h2 class="sec-title">What we stand for.</h2>
+    <div class="grid">
+      <div class="gc"><div class="gc-num">—</div><div class="gc-title">Craftsmanship First</div><div class="gc-body">Every product reflects the same quality standard that has defined Economic Group since the first generation. No shortcuts. No compromise.</div></div>
+      <div class="gc"><div class="gc-num">—</div><div class="gc-title">Long-Term Thinking</div><div class="gc-body">We are a family business that builds for the long term — products, relationships, and trust that endure across generations.</div></div>
+      <div class="gc"><div class="gc-num">—</div><div class="gc-title">Made in India</div><div class="gc-body">Proud manufacturers on Indian soil — contributing skilled employment, quality output, and manufacturing that competes on a global stage.</div></div>
+      <div class="gc"><div class="gc-num">—</div><div class="gc-title">Sustainable Future</div><div class="gc-body">Through Economic Solar, we are committed to a cleaner industrial future — putting clean energy at the centre of our next chapter.</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="f-brand">Economic Group</div>
+    <div class="f-sub">Est. 1974 · Footwear · Bags · Solar · Authorised Bata India Manufacturer</div>
+    <div class="f-cols">
+      <div><div class="f-col-t">Divisions</div><div class="f-col-b">Economic Footwear<br>Economic Bags<br>Economic Solar</div></div>
+      <div><div class="f-col-t">Manufacturing</div><div class="f-col-b">OEM & Private Label<br>Bulk B2B Supply<br>Corporate Gifting</div></div>
+      <div><div class="f-col-t">Partnership</div><div class="f-col-b">Authorised Manufacturer<br>Bata India</div></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2025 Economic Group. All rights reserved.</span>
+      <span style="letter-spacing:2px;text-transform:uppercase">Three Generations of Trust</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════ FOOTWEAR ════════════════ -->
+<div id="page-footwear" class="page">
+
+  <div class="prod-hero">
+    <div class="ph-tag">Economic Group · Division One</div>
+    <h1 class="ph-title">Footwear</h1>
+    <p class="ph-body">Engineered for real conditions. Built to last. Fifty years of sole-making knowledge — applied to every pair we produce, from formal shoes to industrial safety footwear.</p>
+  </div>
+
+  <div class="strip">
+    <div class="strip-tag">Bata India Manufacturer</div>
+    <div class="strip-text">Footwear manufacturing capabilities certified and trusted by Bata India</div>
+  </div>
+
+  <div class="sec sec-alt">
+    <div class="label">Range</div>
+    <h2 class="sec-title">Every step,<br>precisely made.</h2>
+    <p class="sec-body">We manufacture across the full footwear spectrum — handling institutional orders, OEM contracts, and private label manufacturing for domestic and export markets.</p>
+    <div class="pl-grid">
+      <div class="pl"><div class="pl-vis"><div class="pl-vis-label">Formal Footwear</div></div><div class="pl-body"><div class="pl-tag">Men's · Formal</div><div class="pl-name">Formal & Office Shoes</div><div class="pl-desc">Oxford and Derby styles, lace-ups and slip-ons in genuine leather and premium synthetics. Engineered for all-day comfort with the sharp finish corporate environments demand. Available in a full range of lasts for institutional supply.</div></div></div>
+      <div class="pl"><div class="pl-vis"><div class="pl-vis-label">Casual Footwear</div></div><div class="pl-body"><div class="pl-tag">Men's & Women's · Casual</div><div class="pl-name">Casual & Lifestyle</div><div class="pl-desc">Loafers, sneakers, moccasins, and canvas shoes designed for everyday comfort. Lightweight construction with durable outsoles suited to Indian conditions. Ideal for mass retail and e-commerce at competitive price points.</div></div></div>
+      <div class="pl"><div class="pl-vis"><div class="pl-vis-label">Safety Footwear</div></div><div class="pl-body"><div class="pl-tag">Industrial · Safety</div><div class="pl-name">Safety & Industrial</div><div class="pl-desc">Steel-toe and reinforced safety shoes meeting industrial protection standards — supplied to factories, construction sites, and institutional buyers. Built for protection without compromising wearability through long shifts.</div></div></div>
+      <div class="pl"><div class="pl-vis"><div class="pl-vis-label">Sandals</div></div><div class="pl-body"><div class="pl-tag">All Segments · Open</div><div class="pl-name">Sandals & Open Footwear</div><div class="pl-desc">Traditional and contemporary styles — Kolhapuri-inspired to modern EVA and leather sandals. High-volume production capability for retail and wholesale supply across India.</div></div></div>
+      <div class="pl"><div class="pl-vis"><div class="pl-vis-label">School & Uniform</div></div><div class="pl-body"><div class="pl-tag">Institutional · School</div><div class="pl-name">School & Uniform Shoes</div><div class="pl-desc">Durable school shoes designed for daily rigour. Reinforced stitching, comfortable insoles, and scuff-resistant uppers. Supplied to schools and uniform programmes across India. Competitive bulk pricing available.</div></div></div>
+      <div class="pl"><div class="pl-vis"><div class="pl-vis-label">Women's Collection</div></div><div class="pl-body"><div class="pl-tag">Women's</div><div class="pl-name">Women's Collection</div><div class="pl-desc">Flats, heels, wedges, and sandals designed for the modern Indian woman. Combining contemporary style with everyday comfort across all price segments. Private label manufacturing available.</div></div></div>
+    </div>
+  </div>
+
+  <div class="sec sec-dark">
+    <div class="label">Capabilities</div>
+    <h2 class="sec-title">Built for scale.<br>Uncompromising on quality.</h2>
+    <div class="grid grid-dark">
+      <div class="gc gc-dark"><div class="gc-num">—</div><div class="gc-title">High-Volume Production</div><div class="gc-body">Large-scale capacity to fulfil bulk orders for national brands, distributors, and export clients without compromise on quality or timeline.</div></div>
+      <div class="gc gc-dark"><div class="gc-num">—</div><div class="gc-title">Material Sourcing</div><div class="gc-body">Established supplier relationships for leather, PU, EVA, rubber outsoles, and hardware — consistent raw material quality across every order.</div></div>
+      <div class="gc gc-dark"><div class="gc-num">—</div><div class="gc-title">OEM & Private Label</div><div class="gc-body">We manufacture under your brand — design assistance, sampling, full production, and finishing — all under one roof.</div></div>
+      <div class="gc gc-dark"><div class="gc-num">—</div><div class="gc-title">Quality Control</div><div class="gc-body">In-house quality checks at every production stage — the same standard applied to our Bata India contracts, applied to every client.</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="f-brand">Economic Group</div>
+    <div class="f-sub">Est. 1974 · Footwear · Bags · Solar · Authorised Bata India Manufacturer</div>
+    <div class="f-cols">
+      <div><div class="f-col-t">Divisions</div><div class="f-col-b">Economic Footwear<br>Economic Bags<br>Economic Solar</div></div>
+      <div><div class="f-col-t">Footwear Range</div><div class="f-col-b">Formal & Office<br>Casual & Lifestyle<br>Safety & Industrial<br>Sandals · School · Women's</div></div>
+      <div><div class="f-col-t">Enquiries</div><div class="f-col-b">For bulk orders and OEM partnerships, please contact us.</div></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2025 Economic Group. All rights reserved.</span>
+      <span style="letter-spacing:2px;text-transform:uppercase">Three Generations of Trust</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════ BAGS ════════════════ -->
+<div id="page-bags" class="page">
+
+  <div class="prod-hero">
+    <div class="ph-tag">Economic Group · Division Two</div>
+    <h1 class="ph-title">Bags &<br>Leather Goods</h1>
+    <p class="ph-body">Built for the demands of Indian daily life — commutes, travel, boardrooms, and everything between. Materials that hold up. Stitching that stays strong. The same standards we apply to footwear, applied to every bag we make.</p>
+  </div>
+
+  <div class="sec sec-alt">
+    <div class="label">Range</div>
+    <h2 class="sec-title">Craft and quality<br>in every carry.</h2>
+    <p class="sec-body">Our bags division produces a full range of leather and synthetic bags for retail, corporate markets, and institutional buyers — the same craft standards as our footwear, applied to everything we stitch.</p>
+    <div class="pl-grid">
+      <div class="pl"><div class="pl-vis" style="background:#EDE9E4"><div class="pl-vis-label">Ladies Handbags</div></div><div class="pl-body"><div class="pl-tag">Women's · Handbags</div><div class="pl-name">Ladies Handbags</div><div class="pl-desc">Totes, clutches, satchels, shoulder bags, and crossbody styles in genuine leather and premium PU. Everyday casual to formal evenings — full spectrum, every price point. Available for retail, wholesale, and private label.</div></div></div>
+      <div class="pl"><div class="pl-vis" style="background:#E8E4DF"><div class="pl-vis-label">Office Bags</div></div><div class="pl-body"><div class="pl-tag">Professional · Office</div><div class="pl-name">Office & Laptop Bags</div><div class="pl-desc">Briefcases, padded laptop bags, and executive totes for the modern Indian professional. Structured construction, durable hardware, polished finish. Custom branding available for corporate procurement.</div></div></div>
+      <div class="pl"><div class="pl-vis" style="background:#E4E8E4"><div class="pl-vis-label">Travel & Duffel</div></div><div class="pl-body"><div class="pl-tag">Travel</div><div class="pl-name">Travel & Duffel Bags</div><div class="pl-desc">Weekend bags, duffels, and cabin-friendly designs built for Indian travellers. Reinforced stitching, sturdy zippers, spacious interiors — made for the rigours of regular travel.</div></div></div>
+      <div class="pl"><div class="pl-vis" style="background:#E9E4E8"><div class="pl-vis-label">Backpacks</div></div><div class="pl-body"><div class="pl-tag">All Segments · Backpacks</div><div class="pl-name">Backpacks & Rucksacks</div><div class="pl-desc">School bags, college backpacks, and casual rucksacks manufactured in high volumes. Ergonomic design, padded panels, durability-first construction for the Indian education and youth market.</div></div></div>
+      <div class="pl"><div class="pl-vis" style="background:#E8E8E4"><div class="pl-vis-label">Wallets & SLG</div></div><div class="pl-body"><div class="pl-tag">Small Leather Goods</div><div class="pl-name">Wallets & Small Leather Goods</div><div class="pl-desc">Bifold and trifold wallets, cardholders, passport covers, and key pouches in genuine and faux leather. Ideal for gifting, accessories retail, and corporate supply. RFID-blocking options available.</div></div></div>
+      <div class="pl"><div class="pl-vis" style="background:#E4E4E8"><div class="pl-vis-label">Corporate Gifting</div></div><div class="pl-body"><div class="pl-tag">Corporate</div><div class="pl-name">Corporate Gifting Range</div><div class="pl-desc">Custom-branded bags, wallets, and accessories for corporate gifting — bulk production with logo embossing, printing, and packaging. Fast turnaround for event-driven orders. Trusted by businesses across India.</div></div></div>
+    </div>
+  </div>
+
+  <div class="sec sec-dark">
+    <div class="label">Capabilities</div>
+    <h2 class="sec-title">Built for bulk.<br>Crafted with care.</h2>
+    <div class="grid grid-dark">
+      <div class="gc gc-dark"><div class="gc-num">—</div><div class="gc-title">Leather & Synthetic</div><div class="gc-body">Skilled in genuine leather, PU, canvas, nylon, and rexine — material flexibility across price points and market requirements.</div></div>
+      <div class="gc gc-dark"><div class="gc-num">—</div><div class="gc-title">Custom Branding</div><div class="gc-body">In-house embossing, printing, and stitched branding for private label and branded manufacturing — your identity on our quality.</div></div>
+      <div class="gc gc-dark"><div class="gc-num">—</div><div class="gc-title">Corporate Gifting</div><div class="gc-body">Fast turnaround on bulk gifting orders — packaging, customisation, quality checks, and delivery managed end-to-end.</div></div>
+      <div class="gc gc-dark"><div class="gc-num">—</div><div class="gc-title">Bulk Reliability</div><div class="gc-body">Infrastructure built for high-volume, time-sensitive orders — delivered on schedule, at scale, without quality compromise.</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="f-brand">Economic Group</div>
+    <div class="f-sub">Est. 1974 · Footwear · Bags · Solar · Authorised Bata India Manufacturer</div>
+    <div class="f-cols">
+      <div><div class="f-col-t">Divisions</div><div class="f-col-b">Economic Footwear<br>Economic Bags<br>Economic Solar</div></div>
+      <div><div class="f-col-t">Bags Range</div><div class="f-col-b">Handbags · Office Bags<br>Travel & Duffel · Backpacks<br>Wallets · Corporate Gifting</div></div>
+      <div><div class="f-col-t">Enquiries</div><div class="f-col-b">For bags and corporate gifting orders, please contact us.</div></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2025 Economic Group. All rights reserved.</span>
+      <span style="letter-spacing:2px;text-transform:uppercase">Three Generations of Trust</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════ WHY CHOOSE US ════════════════ -->
+<div id="page-why" class="page">
+
+  <div class="page-hero">
+    <div class="hero-label">Why Choose Us</div>
+    <h1 class="hero-title" style="font-size:52px">Five decades of mastery.<br><em>World-class standards.</em></h1>
+    <p class="hero-body">At Economic Group, we have perfected the art of manufacturing over time. We don't just meet industry standards — we set them. Here is what makes working with us different.</p>
+  </div>
+
+  <div class="strip">
+    <div class="strip-tag">Bata India Approved</div>
+    <div class="strip-text">Authorised manufacturer for Bata India — the quality standard we apply to every client</div>
+  </div>
+
+  <div class="sec sec-alt">
+    <div class="label">The Difference</div>
+    <h2 class="sec-title">We handle the craft.<br>You grow the business.</h2>
+    <p class="sec-body">We take complete ownership of the how — sourcing, making, finishing, quality control — so you are free to focus entirely on your market, your brand, and your growth.</p>
+    <div class="diff-grid">
+      <div class="dif">
+        <div class="dif-n">01</div>
+        <div class="dif-t">50+ Years of Mastery</div>
+        <div class="dif-b">Half a century of experience means thousands of products, hundreds of clients, and generations of refined manufacturing knowledge. That is what you access when you work with Economic Group.</div>
+      </div>
+      <div class="dif">
+        <div class="dif-n">02</div>
+        <div class="dif-t">3rd Generation Leadership</div>
+        <div class="dif-b">Family businesses build differently — with long-term views, personal accountability, and values that don't shift with market conditions. The third generation brings 35+ years of business strategy and customer success to a decades-old legacy.</div>
+      </div>
+      <div class="dif">
+        <div class="dif-n">03</div>
+        <div class="dif-t">International Standards</div>
+        <div class="dif-b">We match international benchmarks in technology, infrastructure, and design — while delivering with the pricing advantage and manufacturing strength that Indian production at scale uniquely offers.</div>
+      </div>
+      <div class="dif">
+        <div class="dif-n">04</div>
+        <div class="dif-t">Trusted by Bata India</div>
+        <div class="dif-b">Being an authorised manufacturer for Bata India is a quality credential earned through years of consistent delivery — and the same standard is applied to every client we serve.</div>
+      </div>
+      <div class="dif">
+        <div class="dif-n">05</div>
+        <div class="dif-t">End-to-End Accountability</div>
+        <div class="dif-b">From raw material sourcing to final delivery — we manage the entire manufacturing chain. One partner. No fragmentation. Total confidence in every order.</div>
+      </div>
+      <div class="dif">
+        <div class="dif-n">06</div>
+        <div class="dif-t">Reliability at Scale</div>
+        <div class="dif-b">Consistent quality on order one hundred. Consistent delivery on order one thousand. Our infrastructure performs at whatever scale your business demands.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-dark">
+    <div class="label">Our Commitment</div>
+    <h2 class="sec-title">We focus on the how.<br>You focus on the now.</h2>
+    <p class="sec-body">We match best practices with international standards in technology, infrastructure, and design. We handle the complexity of manufacturing — so you never have to.</p>
+    <div class="quote quote-dark">
+      <div class="qt qt-dark">"We don't just meet industry standards. We set them — and have been setting them for over fifty years."</div>
+      <div class="qc qc-dark">Economic Group · Third Generation Leadership</div>
+    </div>
+  </div>
+
+  <!-- SOLAR -->
+  <div class="solar-sec">
+    <div class="solar-label">Sustainability · Economic Solar</div>
+    <h2 class="solar-title">While you were reading this,<br><em>we got greener.</em></h2>
+    <p class="solar-body">Responsibility is not an afterthought at Economic Group — it is built into how we operate. Each of our divisions is committed to continuously improving its environmental performance and meeting every legal requirement to reduce pollution and minimise our footprint.<br><br>Our newest venture, Economic Solar, takes this further — erecting solar power plants across India, generating clean energy, and contributing to a more sustainable industrial future for the country.</p>
+    <div class="solar-stats">
+      <div><div class="ss-n">Solar</div><div class="ss-l">New Division</div></div>
+      <div><div class="ss-n">Pan India</div><div class="ss-l">Installations</div></div>
+      <div><div class="ss-n">Clean</div><div class="ss-l">Energy Mission</div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="label">At a Glance</div>
+    <h2 class="sec-title">The Economic Group<br>advantage.</h2>
+    <div class="grid">
+      <div class="gc"><div class="gc-num">—</div><div class="gc-title">50+ Years of Excellence</div><div class="gc-body">Half a century of manufacturing mastery across footwear, bags, and now solar energy.</div></div>
+      <div class="gc"><div class="gc-num">—</div><div class="gc-title">3rd Generation Leadership</div><div class="gc-body">Family ownership, long-term vision, and 35+ years of business strategy guiding every decision.</div></div>
+      <div class="gc"><div class="gc-num">—</div><div class="gc-title">Bata India Authorised</div><div class="gc-body">A quality credential earned by consistently meeting India's most demanding manufacturing standards.</div></div>
+      <div class="gc"><div class="gc-num">—</div><div class="gc-title">International Standards</div><div class="gc-body">World-class benchmarks in technology, infrastructure, and product design — delivered from India.</div></div>
+      <div class="gc"><div class="gc-num">—</div><div class="gc-title">Economic Solar</div><div class="gc-body">Solar power plant installations across India — our commitment to a greener industrial future.</div></div>
+      <div class="gc"><div class="gc-num">—</div><div class="gc-title">Complete Accountability</div><div class="gc-body">Sourcing, production, quality control, and delivery — one partner, total confidence.</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="f-brand">Economic Group</div>
+    <div class="f-sub">Est. 1974 · Footwear · Bags · Solar · Authorised Bata India Manufacturer</div>
+    <div class="f-cols">
+      <div><div class="f-col-t">Divisions</div><div class="f-col-b">Economic Footwear<br>Economic Bags<br>Economic Solar</div></div>
+      <div><div class="f-col-t">Why Choose Us</div><div class="f-col-b">50+ Years of Excellence<br>Bata India Authorised<br>International Standards<br>Sustainability</div></div>
+      <div><div class="f-col-t">Get in Touch</div><div class="f-col-b">For business enquiries, bulk orders, OEM partnerships and corporate gifting, please contact us.</div></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2025 Economic Group. All rights reserved.</span>
+      <span style="letter-spacing:2px;text-transform:uppercase">Three Generations of Trust</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nl').forEach(l=>l.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nl').forEach(l=>{
+    if(l.getAttribute('onclick')===`show('${id}')`) l.classList.add('active');
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>

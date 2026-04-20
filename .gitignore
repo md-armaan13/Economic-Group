@@ -1,0 +1,10 @@
+/designs
+/.superpowers
+/docs
+/.vscode
+/.idea
+/node_modules
+/dist
+/build
+/.cache
+/.claude
