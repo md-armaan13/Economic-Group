@@ -16,6 +16,8 @@
   const navbar = document.getElementById('navbar');
   function updateNavbar() {
     if (!navbar) return;
+    // Don't change navbar state while mobile menu is open
+    if (navbar.classList.contains('menu-open')) return;
     if (window.scrollY > 40) navbar.classList.add('scrolled');
     else navbar.classList.remove('scrolled');
   }
@@ -37,6 +39,9 @@
       const open = mobileMenu.classList.toggle('open');
       hamburger.classList.toggle('open', open);
       hamburger.setAttribute('aria-expanded', open);
+      // Lock navbar dark while menu is open
+      navbar.classList.toggle('menu-open', open);
+      if (!open) updateNavbar(); // restore scroll state on close
     });
 
     // close on link click
@@ -45,6 +50,8 @@
         mobileMenu.classList.remove('open');
         hamburger.classList.remove('open');
         hamburger.setAttribute('aria-expanded', 'false');
+        navbar.classList.remove('menu-open');
+        updateNavbar();
       });
     });
   }
