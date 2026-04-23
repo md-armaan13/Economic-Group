@@ -3,185 +3,410 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Economic Group Bags & Accessories — Full-spectrum leather bag and accessories manufacturing. Division Two." />
+  <meta name="description" content="Economic Group Bags & Accessories — Division Two. Full-spectrum leather bag and accessories manufacturing from Kanpur, India." />
   <title>Bags &amp; Accessories — Economic Group</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/bags.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="v2/assets/css/style.css" />
+  <link rel="stylesheet" href="v2/assets/css/bags.css" />
 </head>
 <body>
 
+  <!-- SCROLL PROGRESS -->
+  <div id="scroll-progress"></div>
+
   <!-- ══════════════════════════════════════
-       NAV
+       NAVBAR
   ══════════════════════════════════════ -->
   <header id="navbar">
     <div class="nav-inner">
-      <div class="logo-wrap">
-        <a href="index.html" style="display:flex;align-items:center;gap:6px;text-decoration:none;">
-          <img src="assets/images/logo.png" alt="Economic Group" class="logo-img" />
-          <div class="logo-divider"></div>
+      <a href="index.html" class="logo-group">
+        <img src="v2/assets/images/logo.png" alt="Economic Group" class="logo-img" />
+        <div>
           <span class="logo-name">Economic Group</span>
-          <div class="logo-divider"></div>
-          <span class="logo-sub">Leather &amp; Accessories</span>
-        </a>
-      </div>
+          <span class="logo-tag">Leather &amp; Accessories</span>
+        </div>
+      </a>
+
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <nav class="nav-links" id="nav-links" role="navigation">
-        <a href="index.html"          class="nav-link">Home</a>
-        <a href="footwear.html"       class="nav-link">Footwear</a>
-        <a href="bags.html"           class="nav-link active">Bags</a>
-        <a href="index.html#story"    class="nav-link">Our Story</a>
-        <a href="index.html#contact"  class="nav-link">Contact</a>
-        <a href="index.html#contact"  class="nav-link cta">Enquire Now</a>
+
+      <nav class="nav-links">
+        <a href="index.html"           class="nav-link">Home</a>
+        <a href="index.html#about"     class="nav-link">About</a>
+        <a href="index.html#products"  class="nav-link active">Products</a>
+        <a href="index.html#why"       class="nav-link">Why Us</a>
+        <a href="index.html#contact"   class="nav-link">Contact</a>
+        <a href="#contact"             class="nav-link nav-cta">Enquire</a>
       </nav>
     </div>
-  </header>
 
-  <!-- Breadcrumb -->
-  <div class="bg-back">
-    <a href="index.html">&#8592; Home</a>
-    <span class="bg-back-sep">/</span>
-    <a href="index.html#products">Products</a>
-    <span class="bg-back-sep">/</span>
-    <span class="bg-back-current">Bags &amp; Accessories</span>
-  </div>
+    <!-- Mobile menu -->
+    <nav class="mobile-menu" id="mobile-menu">
+      <a href="index.html"           class="nav-link">Home</a>
+      <a href="index.html#about"     class="nav-link">About</a>
+      <a href="index.html#products"  class="nav-link">Products</a>
+      <a href="index.html#why"       class="nav-link">Why Us</a>
+      <a href="index.html#contact"   class="nav-link">Contact</a>
+      <a href="#contact"             class="nav-link nav-cta">Enquire Now</a>
+    </nav>
+  </header>
 
   <!-- ══════════════════════════════════════
        HERO
   ══════════════════════════════════════ -->
-  <section class="bg-hero">
-    <div class="bg-hero-tag">Economic Group &middot; Division Two</div>
-    <h1 class="bg-hero-title">
-      <span class="bg-hero-line"><span class="bg-hero-line-inner">BAGS &amp;</span></span>
-      <span class="bg-hero-line"><span class="bg-hero-line-inner">ACCESSORIES</span></span>
-    </h1>
-    <p class="bg-hero-sub">Built for the demands of real life — commutes, travel, boardrooms, and everything between. Materials that hold up. Stitching that stays strong. The same standards we apply to leather, applied to every bag we make.</p>
-    <div class="bg-hero-actions">
-      <a href="#contact" class="btn btn-fill">Enquire About Bags</a>
-      <a href="#range" class="btn btn-ghost">View Full Range</a>
+  <section class="hero bags-hero" id="hero">
+    <div class="hero-bg"></div>
+    <img
+      class="hero-image"
+      src="v2/assets/images/bags_product.jpeg"
+      alt="Premium leather bags and accessories"
+      aria-hidden="true"
+    />
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <!-- Left -->
+      <div>
+        <div class="hero-eyebrow">Division Two · Bags &amp; Accessories</div>
+
+        <h1 class="hero-title">
+          <span class="line-1">Carry the world.</span>
+          <span class="line-2"><em>Leave nothing</em></span>
+          <span class="line-3">behind.</span>
+        </h1>
+
+        <p class="hero-sub">
+          Built for the demands of real life — commutes, travel, boardrooms, and everything between. Materials that hold up. Stitching that stays strong. The same standards we apply to leather, applied to every bag we make.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#range" class="btn btn-primary">
+            View Full Range
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-outline">Enquire Now</a>
+        </div>
+      </div>
+
+      <!-- Right — stats badges -->
+      <div class="hero-right">
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">5+</div>
+            <div class="hero-stat-label">Categories</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label">In-House</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">3+</div>
+            <div class="hero-stat-label">Continents</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       TICKER
+  ══════════════════════════════════════ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Ladies Handbags</span><span class="sep">◆</span>
+      <span>Office Bags</span><span class="sep">◆</span>
+      <span>Laptop Bags</span><span class="sep">◆</span>
+      <span>Travel &amp; Duffels</span><span class="sep">◆</span>
+      <span>Backpacks</span><span class="sep">◆</span>
+      <span>Wallets</span><span class="sep">◆</span>
+      <span>Small Leather Goods</span><span class="sep">◆</span>
+      <span>Corporate Gifting</span><span class="sep">◆</span>
+      <!-- duplicated for seamless loop -->
+      <span>Ladies Handbags</span><span class="sep">◆</span>
+      <span>Office Bags</span><span class="sep">◆</span>
+      <span>Laptop Bags</span><span class="sep">◆</span>
+      <span>Travel &amp; Duffels</span><span class="sep">◆</span>
+      <span>Backpacks</span><span class="sep">◆</span>
+      <span>Wallets</span><span class="sep">◆</span>
+      <span>Small Leather Goods</span><span class="sep">◆</span>
+      <span>Corporate Gifting</span><span class="sep">◆</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       STATS
+  ══════════════════════════════════════ -->
+  <section class="stats" id="stats">
+    <div class="stat-card reveal">
+      <div class="stat-num" data-target="5" data-suffix="+">0+</div>
+      <div class="stat-label">Bag Categories</div>
+    </div>
+    <div class="stat-card reveal reveal-delay-1">
+      <div class="stat-num" data-target="50" data-suffix="+">0+</div>
+      <div class="stat-label">Years Manufacturing</div>
+    </div>
+    <div class="stat-card reveal reveal-delay-2">
+      <div class="stat-num" data-target="3" data-suffix="+">0+</div>
+      <div class="stat-label">Continents Served</div>
+    </div>
+    <div class="stat-card reveal reveal-delay-3">
+      <div class="stat-num" data-target="100" data-suffix="%">0%</div>
+      <div class="stat-label">In-House Production</div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       INTRO / ABOUT DIVISION
+  ══════════════════════════════════════ -->
+  <section class="about" id="about">
+    <div class="about-grid">
+
+      <div class="about-visual reveal">
+        <img
+          src="v2/assets/images/ladies_handbag.jpeg"
+          alt="Leather bag craftsmanship at Economic Group"
+          class="about-img"
+        />
+        <div class="about-badge">
+          <div class="about-badge-num">02</div>
+          <div class="about-badge-text">Division Two</div>
+        </div>
+      </div>
+
+      <div class="about-content reveal reveal-delay-2">
+        <div class="section-label">Our Accessories Division</div>
+        <h2>Craft &amp; Quality<br><em>in Every Carry.</em></h2>
+        <div class="heading-underline" style="margin-bottom:20px;"></div>
+        <p>
+          Our accessories division produces a full range of leather and synthetic bags
+          for retail, corporate, and institutional buyers worldwide. The same craft
+          standards we apply to our leather tannery, applied to everything we stitch.
+        </p>
+        <p>
+          From ladies' handbags to executive laptop bags, travel duffels to bulk
+          backpacks, wallets to bespoke corporate gifting — we deliver consistency
+          at every order size, from first sample to one thousandth unit.
+        </p>
+      </div>
+
     </div>
   </section>
 
   <!-- ══════════════════════════════════════
        PRODUCT RANGE
   ══════════════════════════════════════ -->
-  <section class="bg-range" id="range">
-    <div class="bg-range-top fade-in">
-      <div class="section-label">Range</div>
-      <h2>CRAFT &amp; QUALITY<br><em>in every carry.</em></h2>
-      <p>Our accessories division produces a full range of leather and synthetic bags for retail, corporate markets, and institutional buyers — the same craft standards as our tannery, applied to everything we stitch.</p>
-    </div>
+  <section class="products" id="range">
+    <div class="products-inner">
 
-    <div class="bg-rows">
-
-      <!-- Row 1: Text → Image -->
-      <div class="bg-row fade-in">
-        <div class="bg-row-text">
-          <div class="bg-row-tag">Women&rsquo;s &middot; Handbags</div>
-          <div class="bg-row-name">LADIES<br>HANDBAGS</div>
-          <div class="bg-row-rule"></div>
-          <p class="bg-row-desc">Totes, clutches, satchels, shoulder bags, and crossbody styles in genuine leather and premium PU. Everyday casual to formal evenings — full spectrum at every price point. Available for retail, wholesale, and private label.</p>
+      <div class="products-header reveal">
+        <div>
+          <div class="section-label">The Full Range</div>
+          <h2>Every Bag,<br><em>Built to Purpose.</em></h2>
         </div>
-        <div class="bg-row-img" style="background-image:url('./assets/images/ladies_handbag.jpeg');"></div>
+        <p class="products-header-sub">
+          Five categories. One standard. Whether you're sourcing for retail, corporate
+          procurement, or private label — we have the infrastructure to deliver.
+        </p>
       </div>
 
-      <!-- Row 2: Image → Text -->
-      <div class="bg-row fade-in">
-        <div class="bg-row-img" style="background-image:url('./assets/images/laptop_bag.jpeg');"></div>
-        <div class="bg-row-text">
-          <div class="bg-row-tag">Professional &middot; Office</div>
-          <div class="bg-row-name">OFFICE &amp;<br>LAPTOP BAGS</div>
-          <div class="bg-row-rule"></div>
-          <p class="bg-row-desc">Briefcases, padded laptop bags, and executive totes for the modern professional. Structured construction, durable hardware, polished finish. Custom branding available for corporate procurement at scale.</p>
+      <!-- Row 1 — Ladies Handbags -->
+      <article class="range-row reveal">
+        <div class="range-row-img" data-num="01 — HANDBAGS">
+          <img src="v2/assets/images/ladies_handbag.jpeg" alt="Ladies leather handbags" />
         </div>
-      </div>
+        <div class="range-row-content">
+          <div class="range-row-meta">
+            <span class="range-row-num">01</span>
+            <span class="range-row-cat">Women's · Handbags</span>
+          </div>
+          <h3 class="range-row-title">Ladies Handbags</h3>
+          <div class="range-row-divider"></div>
+          <p class="range-row-desc">
+            Totes, clutches, satchels, shoulder bags, and crossbody styles in genuine
+            leather and premium PU. From everyday casual to formal evening pieces —
+            the full spectrum at every price point. Available for retail, wholesale,
+            and private label.
+          </p>
+          <div class="range-row-tags">
+            <span class="prod-tag">Totes</span>
+            <span class="prod-tag">Clutches</span>
+            <span class="prod-tag">Satchels</span>
+            <span class="prod-tag">Crossbody</span>
+            <span class="prod-tag">Premium PU</span>
+          </div>
+        </div>
+      </article>
 
-      <!-- Row 3: Text → Image -->
-      <div class="bg-row fade-in">
-        <div class="bg-row-text">
-          <div class="bg-row-tag">Travel</div>
-          <div class="bg-row-name">TRAVEL &amp;<br>DUFFEL BAGS</div>
-          <div class="bg-row-rule"></div>
-          <p class="bg-row-desc">Weekend bags, duffels, and cabin-friendly designs built for travellers. Reinforced stitching, sturdy zippers, spacious interiors — made for the rigours of regular travel across domestic and international markets.</p>
+      <!-- Row 2 — Office & Laptop -->
+      <article class="range-row range-row-flip reveal">
+        <div class="range-row-img" data-num="02 — OFFICE">
+          <img src="v2/assets/images/laptop_bag.jpeg" alt="Office and laptop bags" />
         </div>
-        <div class="bg-row-img" style="background-image:url('./assets/images/duffle_bag.jpeg');"></div>
-      </div>
+        <div class="range-row-content">
+          <div class="range-row-meta">
+            <span class="range-row-num">02</span>
+            <span class="range-row-cat">Professional · Office</span>
+          </div>
+          <h3 class="range-row-title">Office &amp; Laptop Bags</h3>
+          <div class="range-row-divider"></div>
+          <p class="range-row-desc">
+            Briefcases, padded laptop bags, and executive totes for the modern
+            professional. Structured construction, durable hardware, polished finish.
+            Custom branding available for corporate procurement at scale.
+          </p>
+          <div class="range-row-tags">
+            <span class="prod-tag">Briefcases</span>
+            <span class="prod-tag">Laptop Bags</span>
+            <span class="prod-tag">Executive Totes</span>
+            <span class="prod-tag">Custom Branding</span>
+          </div>
+        </div>
+      </article>
 
-      <!-- Row 4: Image → Text -->
-      <div class="bg-row fade-in">
-        <div class="bg-row-img" style="background-image:url('./assets/images/backpack.jpeg');"></div>
-        <div class="bg-row-text">
-          <div class="bg-row-tag">All Segments &middot; Backpacks</div>
-          <div class="bg-row-name">BACKPACKS</div>
-          <div class="bg-row-rule"></div>
-          <p class="bg-row-desc">backpacks manufactured at high volumes. Ergonomic design, padded panels, durability-first construction for the education and youth market.</p>
+      <!-- Row 3 — Travel -->
+      <article class="range-row reveal">
+        <div class="range-row-img" data-num="03 — TRAVEL">
+          <img src="v2/assets/images/duffle_bag.jpeg" alt="Travel and duffel bags" />
         </div>
-      </div>
+        <div class="range-row-content">
+          <div class="range-row-meta">
+            <span class="range-row-num">03</span>
+            <span class="range-row-cat">Travel</span>
+          </div>
+          <h3 class="range-row-title">Travel &amp; Duffel Bags</h3>
+          <div class="range-row-divider"></div>
+          <p class="range-row-desc">
+            Weekend bags, duffels, and cabin-friendly designs built for travellers.
+            Reinforced stitching, sturdy zippers, spacious interiors — made for the
+            rigours of regular travel across domestic and international markets.
+          </p>
+          <div class="range-row-tags">
+            <span class="prod-tag">Weekenders</span>
+            <span class="prod-tag">Duffels</span>
+            <span class="prod-tag">Cabin Size</span>
+            <span class="prod-tag">Reinforced</span>
+          </div>
+        </div>
+      </article>
 
-      <!-- Row 5: Text → Image -->
-      <div class="bg-row fade-in">
-        <div class="bg-row-text">
-          <div class="bg-row-tag">Small Leather Goods</div>
-          <div class="bg-row-name">WALLETS &amp;<br>SMALL LEATHER GOODS</div>
-          <div class="bg-row-rule"></div>
-          <p class="bg-row-desc">Bifold and trifold wallets, cardholders, passport covers, and key pouches in genuine and faux leather. Ideal for gifting, accessories retail, and corporate supply.</p>
+      <!-- Row 4 — Backpacks -->
+      <article class="range-row range-row-flip reveal">
+        <div class="range-row-img" data-num="04 — BACKPACKS">
+          <img src="v2/assets/images/backpack.jpeg" alt="Backpacks and school bags" />
         </div>
-         <div class="bg-row-img" style="background-image:url('./assets/images/accessories.jpeg');"></div>
-      </div>
+        <div class="range-row-content">
+          <div class="range-row-meta">
+            <span class="range-row-num">04</span>
+            <span class="range-row-cat">All Segments</span>
+          </div>
+          <h3 class="range-row-title">Backpacks</h3>
+          <div class="range-row-divider"></div>
+          <p class="range-row-desc">
+            Backpacks manufactured at high volume for education, corporate, and youth
+            markets. Ergonomic design, padded panels, durability-first construction —
+            built to handle daily wear, year after year.
+          </p>
+          <div class="range-row-tags">
+            <span class="prod-tag">Ergonomic</span>
+            <span class="prod-tag">Padded Panels</span>
+            <span class="prod-tag">School</span>
+            <span class="prod-tag">Corporate</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Row 5 — Wallets & SLG -->
+      <article class="range-row reveal">
+        <div class="range-row-img" data-num="05 — ACCESSORIES">
+          <img src="v2/assets/images/accessories.jpeg" alt="Wallets and small leather goods" />
+        </div>
+        <div class="range-row-content">
+          <div class="range-row-meta">
+            <span class="range-row-num">05</span>
+            <span class="range-row-cat">Small Leather Goods</span>
+          </div>
+          <h3 class="range-row-title">Wallets &amp; Small Leather Goods</h3>
+          <div class="range-row-divider"></div>
+          <p class="range-row-desc">
+            Bifold and trifold wallets, cardholders, passport covers, and key pouches
+            in genuine and faux leather. Ideal for gifting programmes, accessories
+            retail, and corporate supply — with fast turnaround on bulk orders.
+          </p>
+          <div class="range-row-tags">
+            <span class="prod-tag">Wallets</span>
+            <span class="prod-tag">Cardholders</span>
+            <span class="prod-tag">Passport Covers</span>
+            <span class="prod-tag">Key Pouches</span>
+          </div>
+        </div>
+      </article>
 
     </div>
   </section>
 
   <!-- ══════════════════════════════════════
-       CAPABILITIES
+       CAPABILITIES — styled like Why Us
   ══════════════════════════════════════ -->
-  <section class="bg-caps">
-    <div class="bg-caps-top">
-      <div class="fade-in">
-        <div class="section-label" style="color:rgba(255,255,255,0.35)">Capabilities</div>
-        <h2>BUILT FOR BULK.<br><em>Crafted with care.</em></h2>
+  <section class="why-us" id="capabilities">
+    <div class="why-us-inner">
+
+      <div class="why-us-header reveal">
+        <div class="section-label">Our Capabilities</div>
+        <h2>Built for Bulk.<br><em>Crafted with Care.</em></h2>
+        <p>Material flexibility, in-house branding, and infrastructure tuned for volume.</p>
       </div>
-    </div>
 
-    <div class="bg-tl-list">
-
-      <div class="bg-tl-row fade-in">
-        <div class="bg-tl-year">01</div>
-        <div class="bg-tl-body">
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-card-num">01</div>
           <h4>Leather &amp; Synthetic</h4>
-          <p>Skilled in genuine leather, PU, canvas, nylon, and rexine — material flexibility across price points and market requirements, sourced from trusted suppliers.</p>
+          <p>Skilled across genuine leather, PU, canvas, nylon, and rexine — material flexibility for every price point and market requirement, sourced from trusted suppliers.</p>
         </div>
-      </div>
-
-      <div class="bg-tl-row fade-in">
-        <div class="bg-tl-year">02</div>
-        <div class="bg-tl-body">
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-card-num">02</div>
           <h4>Custom Branding</h4>
-          <p>In-house embossing, printing, and stitched branding for private label and branded manufacturing — your identity on our quality, at scale.</p>
+          <p>In-house embossing, printing, and stitched branding for private label and branded manufacturing — your identity on our quality, at any scale.</p>
         </div>
-      </div>
-
-       <div class="bg-tl-row fade-in">
-        <div class="bg-tl-year">04</div>
-        <div class="bg-tl-body">
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-card-num">03</div>
           <h4>Bulk Reliability</h4>
-          <p>Infrastructure built for high-volume, time-sensitive orders — delivered on schedule, at scale, with the same quality applied to every single unit.</p>
+          <p>Infrastructure built for high-volume, time-sensitive orders — delivered on schedule with the same quality on unit one and unit ten thousand.</p>
         </div>
-      </div>
-
-      <div class="bg-tl-row fade-in">
-        <div class="bg-tl-year">03</div>
-        <div class="bg-tl-body">
+        <div class="why-card reveal">
+          <div class="why-card-num">04</div>
           <h4>Corporate Gifting</h4>
-          <p>Fast turnaround on bulk gifting orders — packaging, customisation, quality checks, and delivery managed end-to-end for world-leading fashion labels.</p>
+          <p>Fast turnaround on bulk gifting orders — packaging, customisation, quality checks, and delivery managed end-to-end for world-class clients.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-card-num">05</div>
+          <h4>Private Label</h4>
+          <p>Design collaboration, sampling, and small-batch production for emerging labels and established fashion houses alike. Your brand. Our craft.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-card-num">06</div>
+          <h4>Quality Control</h4>
+          <p>Multi-stage QC on every unit — material inspection, stitching audit, hardware test, final finish. What leaves the factory is what we'd carry ourselves.</p>
         </div>
       </div>
 
-
+      <div class="why-us-footer">
+        <div class="bata-badge reveal">
+          <div class="bata-badge-icon">B</div>
+          <div>
+            <div class="bata-badge-label">Bata India Manufacturer</div>
+            <div class="bata-badge-desc">Authorised partner since 1982</div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </section>
@@ -190,47 +415,69 @@
        CONTACT
   ══════════════════════════════════════ -->
   <section class="contact" id="contact">
-    <div class="contact-left fade-in">
-      <div>
+    <div class="contact-grid">
+
+      <div class="contact-left reveal">
         <div class="section-label">Get In Touch</div>
-        <h2 class="contact-title">LET'S WORK<br><em>together.</em></h2>
-        <div class="contact-fields">
-          <div class="cf">
-            <div class="cf-label">Address</div>
-            <div class="cf-val">88/508A Safia House Chamanganj<br>Kanpur 208001, India</div>
-          </div>
-          <div class="cf">
-            <div class="cf-label">Phone</div>
-            <div class="cf-val cf-phones">
-              <a href="tel:+918604890560">+91 8604890560</a>
+        <h2>Let's Work <em>Together</em></h2>
+        <p>Ready to discuss your bag and accessories requirements? We'd love to hear from you.</p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Address</div>
+              <div class="contact-item-val">88/508A Safia House, Chamanganj<br>Kanpur 208001, India</div>
             </div>
           </div>
-          <div class="cf">
-            <div class="cf-label">Email</div>
-            <div class="cf-val"><a href="mailto:info@economicgrp.com">info@economicgrp.com</a></div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-val"><a href="tel:+918604890560">+91 8604890560</a></div>
+            </div>
           </div>
-          <div class="cf">
-            <div class="cf-label">Hours</div>
-            <div class="cf-val">Monday &ndash; Saturday, 9 AM &ndash; 6 PM IST</div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-val"><a href="mailto:info@economicgrp.com">info@economicgrp.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Hours</div>
+              <div class="contact-item-val">Monday – Saturday, 9 AM – 6 PM IST</div>
+            </div>
           </div>
         </div>
+
+        <a href="mailto:info@economicgrp.com" class="btn btn-primary">
+          Send an Enquiry
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
       </div>
-      <div class="contact-btn">
-        <a href="mailto:info@economicgroup.in" class="btn btn-fill">Send an Enquiry</a>
+
+      <div class="contact-map-wrap reveal reveal-delay-2">
+        <iframe
+          class="contact-map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14287.768157332483!2d80.30934991040796!3d26.45759719113403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c4762bb68a57b%3A0x870ddd09cadb2f31!2sEconomic%20Enterprises!5e0!3m2!1sen!2sin!4v1776615343501!5m2!1sen!2sin"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Economic Group location">
+        </iframe>
       </div>
-    </div>
-    <div class="contact-right">
-      <iframe
-        class="contact-map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14287.768157332483!2d80.30934991040796!3d26.45759719113403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c4762bb68a57b%3A0x870ddd09cadb2f31!2sEconomic%20Enterprises!5e0!3m2!1sen!2sin!4v1776615343501!5m2!1sen!2sin"
-        width="100%"
-        height="100%"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Economic Group location — 44 Matheswartalla Road, Kolkata">
-      </iframe>
+
     </div>
   </section>
 
@@ -239,13 +486,17 @@
   ══════════════════════════════════════ -->
   <footer>
     <div class="footer-inner">
-      <div class="f-logo">Economic Group</div>
-      <span class="f-mid">Leather &amp; Leather Accessories &middot; Est. 1974</span>
-      <span class="f-copy">&copy; 2026 All Rights Reserved</span>
+      <a href="index.html" class="logo-group">
+        <img src="v2/assets/images/logo.png" alt="Economic Group" class="logo-img" />
+        <div>
+          <span class="logo-name">Economic Group</span>
+          <span class="logo-tag">Leather &amp; Accessories</span>
+        </div>
+      </a>
+      <span class="footer-copy">© 2026 All Rights Reserved</span>
     </div>
   </footer>
 
-  <div id="scroll-progress"></div>
-  <script src="assets/js/script.js"></script>
+  <script src="v2/assets/js/script.js"></script>
 </body>
 </html>
